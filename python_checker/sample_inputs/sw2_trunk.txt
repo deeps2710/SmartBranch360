@@ -1,0 +1,12 @@
+SW2>show interfaces trunk
+Port        Mode         Encapsulation  Status        Native vlan
+Gig0/1      on           802.1q         trunking      1
+
+Port        Vlans allowed on trunk
+Gig0/1      10,20,30,99
+
+Port        Vlans allowed and active in management domain
+Gig0/1      10,20,30,99
+
+Port        Vlans in spanning tree forwarding state and not pruned
+Gig0/1      10,20,30,99
