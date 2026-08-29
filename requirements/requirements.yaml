@@ -1,0 +1,112 @@
+site:
+  name: SmartBranch360
+
+vlans:
+  - id: 10
+    name: EMPLOYEE
+    subnet: 10.10.10.0/24
+    gateway: 10.10.10.1
+  - id: 20
+    name: GUEST
+    subnet: 10.10.20.0/24
+    gateway: 10.10.20.1
+  - id: 30
+    name: SERVER
+    subnet: 10.10.30.0/24
+    gateway: 10.10.30.1
+  - id: 99
+    name: MANAGEMENT
+    subnet: 10.10.99.0/24
+    gateway: 10.10.99.1
+
+router:
+  hostname: R1-BRANCH
+  interfaces:
+    - name: G0/0.10
+      vlan: 10
+      ipv4_address: 10.10.10.1/24
+    - name: G0/0.20
+      vlan: 20
+      ipv4_address: 10.10.20.1/24
+    - name: G0/0.30
+      vlan: 30
+      ipv4_address: 10.10.30.1/24
+    - name: G0/0.99
+      vlan: 99
+      ipv4_address: 10.10.99.1/24
+    - name: G0/1
+      ipv4_address: 203.0.113.1/24
+
+nat:
+  interfaces:
+    - name: G0/0.10
+      role: inside
+    - name: G0/0.20
+      role: inside
+    - name: G0/0.30
+      role: inside
+    - name: G0/0.99
+      role: inside
+    - name: G0/1
+      role: outside
+
+switch_management:
+  default_gateway: 10.10.99.1
+  switches:
+    - hostname: SW1
+      ipv4_address: 10.10.99.2/24
+    - hostname: SW2
+      ipv4_address: 10.10.99.3/24
+
+expected_trunks:
+  - switch: SW1
+    interface: Gi0/1
+    allowed_vlans:
+      - 10
+      - 20
+      - 30
+      - 99
+  - switch: SW1
+    interface: Gi0/2
+    allowed_vlans:
+      - 10
+      - 20
+      - 30
+      - 99
+  - switch: SW2
+    interface: Gi0/1
+    allowed_vlans:
+      - 10
+      - 20
+      - 30
+      - 99
+
+servers:
+  - name: SRV1
+    ipv4_address: 10.10.30.10
+  - name: INTERNET-SRV
+    ipv4_address: 203.0.113.10
+
+dhcp:
+  employee:
+    default_gateway: 10.10.10.1
+  guest:
+    default_gateway: 10.10.20.1
+
+security_policy:
+  traffic_rules:
+    - source: GUEST
+      destination: EMPLOYEE
+      action: deny
+    - source: GUEST
+      destination: SERVER
+      action: deny
+    - source: GUEST
+      destination: MANAGEMENT
+      action: deny
+    - source: GUEST
+      destination: external_network
+      action: allow
+  ssh:
+    destination: network_devices
+    only_allowed_source: 10.10.99.10
