@@ -30,7 +30,8 @@ ENV/
 *.code-workspace
 .idea/
 
-# Windows metadata
+# Operating-system metadata
+.DS_Store
 Thumbs.db
 Thumbs.db:encryptable
 ehthumbs.db
