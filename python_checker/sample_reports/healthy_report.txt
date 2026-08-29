@@ -1,0 +1,58 @@
+[PASS] VLAN 10 EMPLOYEE found on SW1
+
+[PASS] VLAN 20 GUEST found on SW1
+
+[PASS] VLAN 30 SERVER found on SW1
+
+[PASS] VLAN 99 MANAGEMENT found on SW1
+
+[PASS] VLAN 10 EMPLOYEE found on SW2
+
+[PASS] VLAN 20 GUEST found on SW2
+
+[PASS] VLAN 30 SERVER found on SW2
+
+[PASS] VLAN 99 MANAGEMENT found on SW2
+
+[PASS] Trunk SW1 Gi0/1 allows VLANs 10,20,30,99
+
+[PASS] Trunk SW1 Gi0/2 allows VLANs 10,20,30,99
+
+[PASS] Trunk SW2 Gi0/1 allows VLANs 10,20,30,99
+
+[PASS] R1-BRANCH G0/0.10 gateway is 10.10.10.1
+
+[PASS] R1-BRANCH G0/0.20 gateway is 10.10.20.1
+
+[PASS] R1-BRANCH G0/0.30 gateway is 10.10.30.1
+
+[PASS] R1-BRANCH G0/0.99 gateway is 10.10.99.1
+
+[PASS] R1-BRANCH G0/1 address is 203.0.113.1
+
+[PASS] R1-BRANCH G0/0.10 has ip nat inside
+
+[PASS] R1-BRANCH G0/0.20 has ip nat inside
+
+[PASS] R1-BRANCH G0/0.30 has ip nat inside
+
+[PASS] R1-BRANCH G0/0.99 has ip nat inside
+
+[PASS] R1-BRANCH G0/1 has ip nat outside
+
+[PASS] DHCP Employee default gateway is 10.10.10.1
+
+[PASS] DHCP Guest default gateway is 10.10.20.1
+
+[PASS] Guest ACL 100 exists and is applied inbound to G0/0.20
+
+[PASS] SSH access to network devices is restricted to 10.10.99.10
+
+==================================================
+SmartBranch 360 Assurance Summary
+==================================================
+Checks passed: 25
+Warnings:      0
+Checks failed: 0
+Overall: PASS
+==================================================
