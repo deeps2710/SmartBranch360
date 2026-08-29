@@ -1,0 +1,13 @@
+R1-BRANCH#show access-lists
+Standard IP access list 1
+    10 permit 10.10.10.0 0.0.0.255
+    20 permit 10.10.20.0 0.0.0.255
+    30 permit 10.10.30.0 0.0.0.255
+    40 permit 10.10.99.0 0.0.0.255
+Extended IP access list 100
+    10 deny ip 10.10.20.0 0.0.0.255 10.10.10.0 0.0.0.255
+    20 deny ip 10.10.20.0 0.0.0.255 10.10.30.0 0.0.0.255
+    30 deny ip 10.10.20.0 0.0.0.255 10.10.99.0 0.0.0.255
+    40 permit ip any any (4 match(es))
+Standard IP access list 10
+    10 permit host 10.10.99.10
