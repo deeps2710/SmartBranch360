@@ -1,0 +1,61 @@
+# Local-only project material
+/local_only/
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+
+# Python virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment and local configuration
+.env
+.env.*
+!.env.example
+
+# Visual Studio Code and other IDE settings
+.vscode/
+*.code-workspace
+.idea/
+
+# Windows metadata
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Microsoft Office temporary files
+~$*
+
+# Logs and temporary development output
+*.log
+logs/
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# Build and packaging output
+build/
+dist/
+*.egg-info/
+
+# Keep required project assets trackable
+!/packet_tracer/
+!/packet_tracer/SmartBranch360.pkt
+!/evidence/
+!/evidence/**
